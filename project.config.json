@@ -1,0 +1,40 @@
+{
+  "description": "摸鱼游戏盒 - 18 款原生 Canvas 小游戏合集",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": ".workbuddy"
+      },
+      {
+        "type": "file",
+        "value": ".wbapp_62EC89Z8EJVdEelRJDkQ2Q.genie"
+      }
+    ],
+    "include": []
+  },
+  "setting": {
+    "bundle": false,
+    "es6": true,
+    "minified": true,
+    "postcss": true,
+    "urlCheck": false,
+    "enhance": true,
+    "ignoreDevUnusedFiles": false,
+    "checkInvalidKey": true,
+    "coverView": true,
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmRelationList": [],
+    "useCompilerPlugins": false,
+    "disableUseStrict": false,
+    "showES6CompileOption": false,
+    "useCompilerModule": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.5.5",
+  "appid": "wx892f2174d0293f28",
+  "projectname": "moyu-game-box",
+  "miniprogramRoot": "./",
+  "condition": {}
+}

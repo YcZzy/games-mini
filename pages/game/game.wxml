@@ -1,0 +1,97 @@
+<view class="game-page">
+    <view class="hud">
+        <view class="hud-cell">
+            <text class="hud-label">{{scoreLabel}}</text>
+            <text class="hud-value" style="color:{{colorTo}}">{{score}}</text>
+        </view>
+        <view class="hud-cell">
+            <text class="hud-label">最佳</text>
+            <text class="hud-value hud-best">{{best}}</text>
+        </view>
+        <view class="hud-actions">
+            <view class="hud-btn" bindtap="togglePause">{{overlay === 'pause' ? '继续' : '暂停'}}</view>
+            <view class="hud-btn" bindtap="replay">重开</view>
+        </view>
+    </view>
+
+    <view class="stage">
+        <canvas
+            id="stage"
+            type="2d"
+            class="stage-canvas"
+            disable-scroll="true"
+            bindtouchstart="onStageTouchStart"
+            bindtouchmove="onStageTouchMove"
+            bindtouchend="onStageTouchEnd"
+            bindtouchcancel="onStageTouchEnd"
+        ></canvas>
+
+        <view class="toast" wx:if="{{hudText}}">{{hudText}}</view>
+
+        <view class="stage-tip" wx:if="{{loadState === 'loading'}}">
+            <text class="tip-text">正在准备…</text>
+        </view>
+
+        <view class="stage-tip" wx:if="{{loadState === 'error'}}">
+            <text class="tip-text">画布初始化失败，请退出重进</text>
+        </view>
+
+        <view class="overlay" wx:if="{{overlay === 'pause'}}">
+            <view class="overlay-card">
+                <view class="ov-title">已暂停</view>
+                <view class="ov-desc">休息一下，随时回来</view>
+                <view
+                    class="ov-btn ov-btn-primary"
+                    style="background:linear-gradient(135deg,{{colorFrom}},{{colorTo}})"
+                    bindtap="resumeGame"
+                    >继续游戏</view
+                >
+                <view class="ov-btn ov-btn-ghost" bindtap="replay">重新开始</view>
+                <view class="ov-link" bindtap="goBack">返回游戏列表</view>
+            </view>
+        </view>
+
+        <view class="overlay" wx:if="{{overlay === 'over' || overlay === 'win'}}">
+            <view class="overlay-card">
+                <view class="ov-badge" style="background:linear-gradient(135deg,{{colorFrom}},{{colorTo}})">
+                    {{overlay === 'win' ? '达成' : '结束'}}
+                </view>
+                <view class="ov-title">{{overTitle}}</view>
+                <view class="ov-desc">{{overDesc}}</view>
+
+                <view class="ov-score">
+                    <text class="ov-score-label">{{scoreLabel}}</text>
+                    <text class="ov-score-value" style="color:{{colorTo}}">{{overScore}}</text>
+                </view>
+                <view class="ov-best" wx:if="{{isBest}}">刷新了个人纪录</view>
+                <view class="ov-best ov-best-normal" wx:else>最佳 {{best}}</view>
+
+                <view
+                    class="ov-btn ov-btn-primary"
+                    style="background:linear-gradient(135deg,{{colorFrom}},{{colorTo}})"
+                    bindtap="replay"
+                    >再来一局</view
+                >
+                <view class="ov-btn ov-btn-ghost" wx:if="{{canContinue}}" bindtap="continueGame"
+                    >继续挑战</view
+                >
+                <view class="ov-link" bindtap="switchGame">换一个游戏</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="pad" wx:if="{{buttons.length > 0}}">
+        <view
+            wx:for="{{buttons}}"
+            wx:key="action"
+            class="pad-btn"
+            data-action="{{item.action}}"
+            bindtouchstart="onPadDown"
+            bindtouchend="onPadUp"
+            bindtouchcancel="onPadUp"
+        >
+            <text class="pad-icon">{{item.icon}}</text>
+            <text class="pad-label">{{item.label}}</text>
+        </view>
+    </view>
+</view>

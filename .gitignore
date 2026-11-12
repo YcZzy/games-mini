@@ -1,0 +1,14 @@
+# 微信开发者工具本地配置
+project.private.config.json
+
+# WorkBuddy 平台产物（本地记忆、应用卡）
+.workbuddy/
+.wbapp_*.genie
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 依赖与日志
+node_modules/
+*.log

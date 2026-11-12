@@ -1,0 +1,247 @@
+.game-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #f5f6f8;
+}
+
+/* ---------- 顶部信息条 ---------- */
+.hud {
+    display: flex;
+    align-items: flex-end;
+    padding: 14rpx 30rpx 16rpx;
+}
+
+.hud-cell {
+    margin-right: 44rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.hud-label {
+    font-size: 20rpx;
+    color: #9aa1aa;
+    letter-spacing: 1rpx;
+    line-height: 1.2;
+}
+
+.hud-value {
+    font-size: 40rpx;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #23262b;
+    font-variant-numeric: tabular-nums;
+}
+
+.hud-best {
+    color: #6a717a;
+}
+
+.hud-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding-bottom: 6rpx;
+}
+
+.hud-btn {
+    padding: 12rpx 24rpx;
+    margin-left: 12rpx;
+    border-radius: 999rpx;
+    background: #ffffff;
+    font-size: 24rpx;
+    color: #4a5158;
+    box-shadow: 0 4rpx 14rpx rgba(24, 32, 48, 0.06);
+}
+
+/* ---------- 画布区 ---------- */
+.stage {
+    position: relative;
+    flex: 1;
+    background: #ffffff;
+    overflow: hidden;
+    border-top: 1rpx solid #eef0f3;
+}
+
+.stage-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stage-tip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tip-text {
+    font-size: 26rpx;
+    color: #9aa1aa;
+}
+
+.toast {
+    position: absolute;
+    top: 26rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(35, 38, 43, 0.82);
+    color: #ffffff;
+    font-size: 24rpx;
+    padding: 10rpx 28rpx;
+    border-radius: 999rpx;
+    z-index: 20;
+}
+
+/* ---------- 遮罩 ---------- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(246, 247, 249, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+}
+
+.overlay-card {
+    width: 520rpx;
+    padding: 44rpx 40rpx 36rpx;
+    background: #ffffff;
+    border-radius: 36rpx;
+    box-shadow: 0 20rpx 60rpx rgba(24, 32, 48, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ov-badge {
+    font-size: 22rpx;
+    color: #ffffff;
+    padding: 6rpx 22rpx;
+    border-radius: 999rpx;
+    margin-bottom: 20rpx;
+    letter-spacing: 2rpx;
+}
+
+.ov-title {
+    font-size: 40rpx;
+    font-weight: 700;
+    color: #23262b;
+    letter-spacing: 1rpx;
+}
+
+.ov-desc {
+    font-size: 24rpx;
+    color: #8a9199;
+    margin-top: 12rpx;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.ov-score {
+    display: flex;
+    align-items: baseline;
+    margin-top: 30rpx;
+}
+
+.ov-score-label {
+    font-size: 24rpx;
+    color: #9aa1aa;
+    margin-right: 14rpx;
+}
+
+.ov-score-value {
+    font-size: 68rpx;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.ov-best {
+    font-size: 22rpx;
+    color: #e0863f;
+    margin-top: 12rpx;
+    padding: 6rpx 20rpx;
+    background: rgba(224, 134, 63, 0.1);
+    border-radius: 999rpx;
+}
+
+.ov-best-normal {
+    color: #8a9199;
+    background: #f4f5f7;
+}
+
+.ov-btn {
+    width: 100%;
+    height: 88rpx;
+    border-radius: 22rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 29rpx;
+    font-weight: 600;
+    margin-top: 20rpx;
+}
+
+.ov-btn-primary {
+    color: #ffffff;
+}
+
+.ov-btn-ghost {
+    background: #f4f5f7;
+    color: #4a5158;
+    font-weight: 500;
+}
+
+.ov-link {
+    margin-top: 26rpx;
+    font-size: 24rpx;
+    color: #9aa1aa;
+}
+
+/* ---------- 底部按键 ---------- */
+.pad {
+    display: flex;
+    justify-content: center;
+    padding: 16rpx 24rpx;
+    padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+    background: #f5f6f8;
+}
+
+.pad-btn {
+    flex: 1;
+    max-width: 132rpx;
+    height: 98rpx;
+    margin: 0 7rpx;
+    border-radius: 24rpx;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6rpx 18rpx rgba(24, 32, 48, 0.07);
+}
+
+.pad-btn:active {
+    background: #eef0f3;
+}
+
+.pad-icon {
+    font-size: 38rpx;
+    color: #3a4149;
+    line-height: 1.1;
+}
+
+.pad-label {
+    font-size: 18rpx;
+    color: #9aa1aa;
+    margin-top: 2rpx;
+}

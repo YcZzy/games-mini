@@ -1,0 +1,72 @@
+<view class="home">
+    <view class="hero">
+        <text class="hero-title">摸鱼游戏盒</text>
+        <text class="hero-sub">{{totalGames}} 款即开即玩的小游戏，全部离线运行</text>
+
+        <view class="stats">
+            <view class="stat">
+                <text class="stat-num">{{totalGames}}</text>
+                <text class="stat-label">款游戏</text>
+            </view>
+            <view class="stat-divider"></view>
+            <view class="stat">
+                <text class="stat-num">{{playedCount}}</text>
+                <text class="stat-label">已玩过</text>
+            </view>
+            <view class="stat-divider"></view>
+            <view class="stat">
+                <text class="stat-num">{{totalPlays}}</text>
+                <text class="stat-label">总局数</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="quick" bindtap="openRandom">
+        <view class="quick-main">
+            <text class="quick-title">随机开一局</text>
+            <text class="quick-sub">不知道玩哪个？交给运气</text>
+        </view>
+        <text class="quick-arrow">→</text>
+    </view>
+
+    <scroll-view class="chips" scroll-x enable-flex show-scrollbar="{{false}}">
+        <view
+            wx:for="{{tags}}"
+            wx:key="*this"
+            class="chip {{activeTag === item ? 'chip-active' : ''}}"
+            data-tag="{{item}}"
+            bindtap="onTagTap"
+            >{{item}}</view
+        >
+    </scroll-view>
+
+    <view class="grid">
+        <view
+            class="card"
+            wx:for="{{visibleGames}}"
+            wx:key="key"
+            data-key="{{item.key}}"
+            bindtap="openGame"
+        >
+            <view
+                class="card-icon"
+                style="background:linear-gradient(135deg,{{item.colorFrom}},{{item.colorTo}})"
+            >
+                <text class="icon-text" style="font-size:{{item.labelSize}}rpx">{{item.label}}</text>
+            </view>
+
+            <view class="card-name">{{item.name}}</view>
+            <view class="card-desc">{{item.desc}}</view>
+
+            <view class="card-foot">
+                <text class="card-record" wx:if="{{item.recordText}}">{{item.recordText}}</text>
+                <text class="card-record card-record-empty" wx:else>{{item.control}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="footer">
+        <text class="footer-text">所有游戏均在本地运行，不会产生流量</text>
+        <text class="footer-link" bindtap="resetRecords">清空记录</text>
+    </view>
+</view>
