@@ -2,6 +2,12 @@
  * 游戏实现注册表。首页不加载此文件。
  */
 module.exports = {
+    chess: require('./chess.js'),
+    freecell: require('./freecell.js'),
+    nonogram: require('./nonogram.js'),
+    mastermind: require('./mastermind.js'),
+    euler: require('./euler.js'),
+    battleship: require('./battleship.js'),
     tank: require('./tank.js'),
     goldminer: require('./goldminer.js'),
     sudoku: require('./sudoku.js'),
