@@ -4,6 +4,21 @@
  */
 module.exports = [
     {
+        key: 'holdem',
+        name: '德州扑克',
+        label: 'A',
+        labelSize: 44,
+        desc: '无限注，四人桌打到底',
+        tag: '对战',
+        colors: ['#35624F', '#1E4335'],
+        control: '点按按钮',
+        scoreLabel: '筹码',
+        tip: '看底池赔率决定跟不跟；筹码少时全下只能争主池',
+        buttons: [],
+        recordPrefix: '最高',
+        recordUnit: '筹码',
+    },
+    {
         key: 'chess',
         name: '国际象棋',
         label: '王',

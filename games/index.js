@@ -2,6 +2,7 @@
  * 游戏实现注册表。首页不加载此文件。
  */
 module.exports = {
+    holdem: require('./holdem.js'),
     chess: require('./chess.js'),
     freecell: require('./freecell.js'),
     nonogram: require('./nonogram.js'),
